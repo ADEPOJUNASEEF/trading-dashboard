@@ -4,41 +4,37 @@
   <title>My Trading Dashboard</title>
   <style>
     body { margin: 0; background: #131722; color: white; font-family: sans-serif; }
-    #chart-container { height: 100vh; width: 100%; }
+    .tradingview-widget-container { height: 100vh; width: 100%; }
   </style>
-  <!-- Load the official TradingView library -->
-  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 </head>
 <body>
-  <div id="chart-container"></div>
-
-  <script type="text/javascript">
-    // Small delay to ensure the page is fully loaded before drawing the chart
-    setTimeout(function() {
-      new TradingView.widget({
-        "container_id": "chart-container",
-        "autosize": true,
-        "symbol": "FX:EURUSD",
-        "interval": "15",
-        "timezone": "Etc/UTC",
-        "theme": "dark",
-        "style": "1",
-        "locale": "en",
-        "toolbar_bg": "#f1f3f6",
-        "enable_publishing": false,
-        "allow_symbol_change": true,
-        "watchlist": [
-          "FX:EURUSD",
-          "FX:USDJPY",
-          "FX:GBPUSD",
-          "OANDA:XAU_USD",
-          "BITSTAMP:BTCUSD"
-        ],
-        "studies": [
-          "RSI@tv-basicstudies"
-        ]
-      });
-    }, 300);
-  </script>
+  <!-- TradingView Widget BEGIN -->
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {
+      "autosize": true,
+      "symbol": "FX:EURUSD",
+      "interval": "15",
+      "timezone": "Etc/UTC",
+      "theme": "dark",
+      "style": "1",
+      "locale": "en",
+      "enable_publishing": false,
+      "allow_symbol_change": true,
+      "watchlist": [
+        "FX:EURUSD",
+        "FX:USDJPY",
+        "FX:GBPUSD",
+        "OANDA:XAU_USD",
+        "BITSTAMP:BTCUSD"
+      ],
+      "studies": [
+        "RSI@tv-basicstudies"
+      ]
+    }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
 </body>
 </html>
